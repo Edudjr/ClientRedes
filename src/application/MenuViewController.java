@@ -5,12 +5,14 @@ import java.util.ArrayList;
 
 import com.google.gson.JsonSyntaxException;
 
+import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 
 public class MenuViewController {
@@ -24,6 +26,8 @@ public class MenuViewController {
 	private TableColumn<Candidato, String> partidoColumn;
 	@FXML
 	private TableColumn<Candidato, Integer> votosColumn;
+	@FXML
+	private HBox hbox;
 
 	private ObservableList<Candidato> dataList = FXCollections.observableArrayList();
 
@@ -45,7 +49,7 @@ public class MenuViewController {
 
 		// Auto resize columns
 		tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-		
+		hbox.setDisable(true);
 	}
 
 	public void setCliente(Cliente cliente){
@@ -76,6 +80,7 @@ public class MenuViewController {
 	@FXML
 	public void handleCarregar(){
 		loadDataList();
+		hbox.setDisable(false);
 	}
 	
 	@FXML
@@ -97,6 +102,7 @@ public class MenuViewController {
 	
 	@FXML
 	public void handleFinalizar(){
-		//
+		cliente.enviaVotosServidor("888");
+		//System.exit(0);
 	}
 }

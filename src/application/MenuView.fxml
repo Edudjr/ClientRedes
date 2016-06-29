@@ -16,7 +16,7 @@
          </font>
       </Label>
       <Label layoutX="236.0" layoutY="41.0" text="Menu" AnchorPane.topAnchor="40.0" />
-      <HBox layoutX="16.0" layoutY="67.0" prefHeight="30.0" prefWidth="466.0" spacing="8.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="67.0">
+      <HBox fx:id="hbox" layoutX="16.0" layoutY="67.0" prefHeight="30.0" prefWidth="466.0" spacing="8.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="67.0">
          <children>
             <Button mnemonicParsing="false" onAction="#handleVotar" prefHeight="30.0" prefWidth="120.0" text="Votar" />
             <Button mnemonicParsing="false" onAction="#handleVotarBranco" prefHeight="30.0" prefWidth="110.0" text="Votar em Branco" />
