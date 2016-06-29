@@ -28,7 +28,7 @@ public class Cliente extends Application{
 	private boolean        inicializado;
 	private boolean        executando;	
 	private int            controle = 0;
-	private boolean        votou;
+	private boolean        votou = false;
 	private int port = 40006;
 	private Candidato candidatoSelecionado = null;
 	private Stage primaryStage;
@@ -125,37 +125,50 @@ public class Cliente extends Application{
 	//Carrega a lista de candidatos que está no servidor
 	public ArrayList<Candidato> carregaCandidatos(String opCod) throws JsonSyntaxException, IOException{		
 
-		//if(controle == 0){
-		abreConexao();	
+		if(controle == 0){
+			abreConexao();	
 
-		Gson gson =  new Gson();
-		listaCandidato = new ArrayList<Candidato>();
+			Gson gson =  new Gson();
+			listaCandidato = new ArrayList<Candidato>();
 
-		ENVIA.println(opCod);
-		ENVIA.flush();
+			ENVIA.println(opCod);
+			ENVIA.flush();
 
-		Type type = new TypeToken<ArrayList<Candidato>>(){}.getType();
-		listaCandidato = gson.fromJson(recebe.readLine(), type);
+			Type type = new TypeToken<ArrayList<Candidato>>(){}.getType();
+			listaCandidato = gson.fromJson(recebe.readLine(), type);
 
-		System.out.println("\nLista de Candidatos carregada.\n");
-		fecha();
-		controle++;
+			System.out.println("\nLista de Candidatos carregada.\n");
+			fecha();
+			controle++;
 
-		//Mostra as informações sobre todos os candidatos
-		System.out.println("Lista de candidatos");
-		for(int i=0; i < listaCandidato.size() ; i++){
-			System.out.println("Codigo: "           + listaCandidato.get(i).getCodigo_votacao() + 
-					", Nome: "           + listaCandidato.get(i).getNome_candidato() +  
-					", Pardido: "        + listaCandidato.get(i).getPartido() +
-					", Numero de Votos:" + listaCandidato.get(i).getNum_votos()  );
+			//Mostra as informações sobre todos os candidatos
+			System.out.println("Lista de candidatos");
+			for(int i=0; i < listaCandidato.size() ; i++){
+				System.out.println("Codigo: "           + listaCandidato.get(i).getCodigo_votacao() + 
+						", Nome: "           + listaCandidato.get(i).getNome_candidato() +  
+						", Pardido: "        + listaCandidato.get(i).getPartido() +
+						", Numero de Votos:" + listaCandidato.get(i).getNum_votos()  );
+			}
+			System.out.println("\n");
+			return listaCandidato;
 		}
-		System.out.println("\n");
-		return listaCandidato;
-		//		}
-		//		else{
-		//			System.out.println("\nLista de Candidatos ja foi carreda. Ja pode votar.\n");
-		//		}
-		//	    return null;
+		else{
+			System.out.println("\nLista de Candidatos ja foi carreda. Ja pode votar.\n");
+			return listaCandidato;
+		}
+	}
+
+	public void confirmVote(Candidato candidate){
+
+		for(Candidato c : listaCandidato){
+			if(c.getCodigo_votacao() == candidate.getCodigo_votacao()){
+				int votes = c.getNum_votos();
+				votes++;
+				c.setNum_votos(votes);
+				votou = true;
+				return;
+			}
+		}
 	}
 
 	public void executaVoto() throws IOException{

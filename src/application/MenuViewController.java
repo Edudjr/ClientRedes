@@ -57,7 +57,8 @@ public class MenuViewController {
 
 			ArrayList<Candidato> array = new ArrayList<Candidato>();
 			array = cliente.carregaCandidatos("999");
-
+			
+			dataList.clear();
 			if(array != null){
 				for (Candidato item : array){
 					dataList.add(item);

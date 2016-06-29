@@ -60,7 +60,8 @@ public class ConfirmationViewController {
 	}
 
 	public void handleConfirmar(){
-		//confirmar
+		cliente.confirmVote(candidate);
+		cliente.showMenu();
 	}
 	
 	public void handleCancelar(){
