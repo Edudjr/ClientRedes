@@ -124,7 +124,7 @@ public class Cliente extends Application{
 
 	}
 	//Carrega a lista de candidatos que está no servidor
-	public ArrayList<Candidato> carregaCandidatos(String opCod) throws JsonSyntaxException, IOException{		
+	public ArrayList<Candidato> carregaCandidatos() throws JsonSyntaxException, IOException{		
 
 		if(controle == 0){
 			abreConexao();	
@@ -132,7 +132,7 @@ public class Cliente extends Application{
 			Gson gson =  new Gson();
 			listaCandidato = new ArrayList<Candidato>();
 
-			ENVIA.println(opCod);
+			ENVIA.println("999");
 			ENVIA.flush();
 
 			Type type = new TypeToken<ArrayList<Candidato>>(){}.getType();
@@ -172,57 +172,26 @@ public class Cliente extends Application{
 		}
 	}
 
-	public void executaVoto() throws IOException{
+	
 
-		if(controle == 0){ //Checa se a lista de candidato foi carregada 
-			System.out.println("Por favor carregue a lista de cadidatos.\n");
-		}
-		else{
-			boolean codigoEncontrado = false;
-			int posi = 0 ;
+	//Contabiliza os votos Nulos
+	public void votoNulo(){
+		Candidato c = listaCandidato.get(0);
+		int votes = c.getNum_votos();
+		votes++;
+		c.setNum_votos(votes);
+		votou = true;
+		return;
+	}
 
-			System.out.println("Digite o codigo do candidato que deseja votar.\n");
-			Scanner scanner = new Scanner(System.in);
-			int codigo = scanner.nextInt();
-
-			//Procura o cadidato na lista
-			for(int j=0; j<listaCandidato.size(); j++){
-				if(listaCandidato.get(j).getCodigo_votacao() == codigo){
-					posi = j;
-					codigoEncontrado = true;
-				}
-			}
-			if(codigoEncontrado == true){
-
-				System.out.println("Esse é o seu candidato?");
-				System.out.println("Codigo: "  + listaCandidato.get(posi).getCodigo_votacao() + "\n" +
-						"Nome: "    + listaCandidato.get(posi).getNome_candidato() + "\n" +
-						"Pardido: " + listaCandidato.get(posi).getPartido() +"\n");
-
-				System.out.println("Aperte s para confirmar seu voto");
-				System.out.println("Aperte n para corrigir seu voto");
-				char c = (char)System.in.read();
-
-				if(c == 's'){
-					int votos = listaCandidato.get(posi).getNum_votos();
-					votos++;
-					listaCandidato.get(posi).setNum_votos(votos);
-					System.out.println("Seu voto foi registrado com sucesso\n");
-					votou = true;
-
-
-					for(int i=0; i < listaCandidato.size() ; i++){
-						System.out.println("Codigo: "           + listaCandidato.get(i).getCodigo_votacao() + 
-								", Nome: "           + listaCandidato.get(i).getNome_candidato() +  
-								", Pardido: "        + listaCandidato.get(i).getPartido() +
-								", Numero de Votos:" + listaCandidato.get(i).getNum_votos()  );
-					}
-				}
-			}
-			else{
-				System.out.println("Por favor, entre com um codigo de candidato valido.\n");
-			}
-		}
+	//Contabiliza os votos Brancos
+	public void votoBranco(){
+		Candidato c = listaCandidato.get(1);
+		int votes = c.getNum_votos();
+		votes++;
+		c.setNum_votos(votes);
+		votou = true;
+		return;
 	}
 
 	public void enviaVotosServidor(String opCod){

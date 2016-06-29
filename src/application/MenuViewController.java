@@ -60,7 +60,7 @@ public class MenuViewController {
 		try {
 
 			ArrayList<Candidato> array = new ArrayList<Candidato>();
-			array = cliente.carregaCandidatos("999");
+			array = cliente.carregaCandidatos();
 			
 			dataList.clear();
 			if(array != null){
@@ -92,12 +92,14 @@ public class MenuViewController {
 	
 	@FXML
 	public void handleVotarNulo(){
-		//
+		cliente.votoNulo();
+		loadDataList();
 	}
 	
 	@FXML
 	public void handleVotarBranco(){
-		//
+		cliente.votoBranco();
+		loadDataList();
 	}
 	
 	@FXML
