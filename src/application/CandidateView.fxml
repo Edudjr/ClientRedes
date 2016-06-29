@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CandidateViewController">
+   <children>
+      <Label alignment="CENTER" layoutX="149.0" layoutY="14.0" text="Selecione um candidato" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="149.0" layoutY="113.0" text="Digite o número do candidato:" AnchorPane.leftAnchor="149.0" AnchorPane.topAnchor="113.0" />
+      <TextField fx:id="textfield" layoutX="318.0" layoutY="109.0" prefHeight="25.0" prefWidth="45.0" AnchorPane.leftAnchor="318.0" AnchorPane.topAnchor="109.0" />
+      <HBox layoutX="90.0" layoutY="166.0" spacing="10.0" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="166.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleConfirmar" prefHeight="40.0" prefWidth="100.0" text="Confirma" />
+            <Button mnemonicParsing="false" onAction="#handleCorrige" prefHeight="40.0" prefWidth="100.0" text="Corrige" />
+            <Button mnemonicParsing="false" onAction="#handleCancelar" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

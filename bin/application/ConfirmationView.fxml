@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ConfirmationViewController">
+   <children>
+      <Label alignment="CENTER" layoutX="218.0" layoutY="14.0" text="Confirmar Candidato" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <HBox layoutX="463.0" layoutY="142.0" spacing="5.0" AnchorPane.bottomAnchor="88.0" AnchorPane.rightAnchor="30.0" />
+      <Label layoutX="78.0" layoutY="105.0" text="Nome:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="130.0" />
+      <Label layoutX="75.0" layoutY="88.0" text="Número:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="100.0" />
+      <Label layoutX="78.0" layoutY="131.0" text="Partido:" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="160.0" />
+      <Label fx:id="numeroLabel" layoutX="133.0" layoutY="97.0" text="Número" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="95.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomeLabel" layoutX="133.0" layoutY="125.0" text="Nome" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="125.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="partidoLabel" layoutX="133.0" layoutY="155.0" text="Partido" AnchorPane.leftAnchor="130.0">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="143.0" layoutY="221.0" text="Deseja confirmar o candidato escolhido?" AnchorPane.topAnchor="220.0" />
+      <Label layoutX="181.0" layoutY="57.0" text="O candidato escolhido foi:" AnchorPane.topAnchor="45.0" />
+      <HBox layoutX="143.0" layoutY="262.0" spacing="15.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleConfirmar" prefHeight="40.0" prefWidth="100.0" text="Confirmar" />
+            <Button mnemonicParsing="false" onAction="#handleCancelar" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
