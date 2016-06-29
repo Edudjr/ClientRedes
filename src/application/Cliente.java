@@ -255,27 +255,5 @@ public class Cliente extends Application{
 
 		boolean var = true;
 		launch(args);
-		//		while(var){
-		//			System.out.println("Entre com uma das opções abaixo.");
-		//			System.out.println("1 Votar.");
-		//			System.out.println("2 Votar em Branco.");
-		//			System.out.println("3 Votar Nulo.");
-		//			System.out.println("999 Carrega a lista de candidatos do servidor.");
-		//			System.out.println("888 Para encerrar a votação.\n");
-		//			
-		//			Scanner scanner = new Scanner(System.in);
-		//			opCod = scanner.nextLine();
-		//			
-		//			if("1".equals(opCod)){
-		//				cliente.executaVoto();
-		//			}
-		//			if("999".equals(opCod)){
-		//				cliente.carregaCandidatos(opCod);
-		//			}
-		//			if("888".equals(opCod)){
-		//				cliente.enviaVotosServidor(opCod);
-		//				var = false;
-		//			}
-		//		}
 	}
 }
