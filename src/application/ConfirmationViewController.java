@@ -25,6 +25,7 @@ public class ConfirmationViewController {
 	// Reference to the main application
 	private Cliente cliente;
 	private Candidato candidate;
+	private ArrayList<Candidato> candidateList;
 
 	@FXML
 	private void initialize() {
@@ -47,6 +48,10 @@ public class ConfirmationViewController {
 		this.cliente = cliente;
 	}
 	
+	public void setCandidateList(ArrayList<Candidato> candidateList){
+		this.candidateList = candidateList;
+	}
+	
 	public void setCandidate(Candidato candidate){
 		this.candidate = candidate;
 		String nome = candidate.getNome_candidato();
@@ -65,6 +70,6 @@ public class ConfirmationViewController {
 	}
 	
 	public void handleCancelar(){
-		cliente.showMenu();
+		cliente.showCandidate(candidateList);
 	}
 }

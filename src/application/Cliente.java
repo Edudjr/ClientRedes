@@ -78,7 +78,7 @@ public class Cliente extends Application{
 		}
 	}
 
-	public void showConfirmation(Candidato candidate){
+	public void showConfirmation(ArrayList<Candidato>candidateList, Candidato candidate){
 		try{
 			FXMLLoader loader = new FXMLLoader
 					(Cliente.class.getResource("ConfirmationView.fxml"));
@@ -91,6 +91,7 @@ public class Cliente extends Application{
 			ConfirmationViewController controller = loader.getController();
 			controller.setCliente(this);
 			controller.setCandidate(candidate);
+			controller.setCandidateList(candidateList);
 
 		}catch(IOException e){
 			e.printStackTrace();

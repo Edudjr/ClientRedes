@@ -35,7 +35,7 @@ public class CandidateViewController {
 		//Percorre lista recebida de fora
 		for(Candidato candidate : candidateList){
 			if (num == candidate.getCodigo_votacao()){
-				cliente.showConfirmation(candidate);
+				cliente.showConfirmation(candidateList, candidate);
 				return;
 			}
 		}
