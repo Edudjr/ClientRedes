@@ -23,5 +23,6 @@
             <Button mnemonicParsing="false" onAction="#handleCancelar" prefHeight="40.0" prefWidth="100.0" text="Cancelar" />
          </children>
       </HBox>
+      <Label fx:id="erroLabel" layoutX="121.0" layoutY="223.0" text="O número indicado não existe! Tente novamente" textFill="RED" AnchorPane.leftAnchor="121.0" AnchorPane.topAnchor="223.0" />
    </children>
 </AnchorPane>
