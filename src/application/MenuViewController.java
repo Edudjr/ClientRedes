@@ -105,6 +105,7 @@ public class MenuViewController {
 	@FXML
 	public void handleFinalizar(){
 		cliente.enviaVotosServidor("888");
+		hbox.setDisable(true);
 		//System.exit(0);
 	}
 }
