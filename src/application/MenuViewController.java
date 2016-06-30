@@ -70,6 +70,7 @@ public class MenuViewController {
 				tableView.setItems(dataList);
 			}
 
+			hbox.setDisable(false);
 		} catch (JsonSyntaxException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -80,7 +81,6 @@ public class MenuViewController {
 	@FXML
 	public void handleCarregar(){
 		loadDataList();
-		hbox.setDisable(false);
 	}
 	
 	@FXML

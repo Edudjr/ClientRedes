@@ -38,10 +38,10 @@ public class Cliente extends Application{
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		showMenu();
+		showMenu(false);
 	}
 
-	public void showMenu(){
+	public void showMenu(Boolean showLoaded){
 		try{
 			FXMLLoader loader = new FXMLLoader
 					(Cliente.class.getResource("MenuView.fxml"));
@@ -53,6 +53,10 @@ public class Cliente extends Application{
 			// Give the controller access to the main app
 			MenuViewController controller = loader.getController();
 			controller.setCliente(this);
+			
+			if(showLoaded){
+				controller.loadDataList();
+			}
 
 		}catch(IOException e){
 			e.printStackTrace();
@@ -101,7 +105,7 @@ public class Cliente extends Application{
 	//Estabelce conexao com o servidor
 	public void abreConexao() throws IOException{
 		try {
-			socket = new Socket("localhost", port);
+			socket = new Socket("cosmos.lasdpc.icmc.usp.br", port);
 			recebe = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			ENVIA  = new PrintStream(socket.getOutputStream());
 

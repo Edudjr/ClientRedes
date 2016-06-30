@@ -58,6 +58,6 @@ public class CandidateViewController {
 	}
 	
 	public void handleCancelar(){
-		cliente.showMenu();
+		cliente.showMenu(true);
 	}
 }
