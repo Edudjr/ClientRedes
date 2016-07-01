@@ -20,6 +20,15 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author  Rafael Silva  7962006
+ * 			Eduardo Domene Jr 7986538
+ * 			Fernanda Rosa 8531629
+ * 			Laryssa Vieira 8082042
+ *
+ */
+
 public class Cliente extends Application{
 
 	private Socket         socket;
